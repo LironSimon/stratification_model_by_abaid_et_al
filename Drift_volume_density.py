@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 # Drift_volume_density formulates the changing density of the entrained fluid,
 # by solving a first order differential equation of densityy as a fundc of t.
 # the velocity of the sphere (Vp) remains in the solution as a variable 
