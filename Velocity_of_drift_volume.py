@@ -22,14 +22,15 @@
 
 from Imported_data_and_properties import *
 from Drift_volume_density import *
+from scipy import integrate
 
-# construct Re and velocity function
-def Re(Vp): return vp*d/nu1     #momentery Re based on viscosity of the top layer 
+# construct Re and deta_dt functions
+def Re(Vp): return Vp*d/nu1     #momentery Re based on viscosity of the top layer 
+def deta_dt(g,rho,X,omega,rhod,z,Vp): return g*(rho[X-omega]-rhod)/rhod + z*F_drg(Re(eta-Vp))
 
-def rhod(t): 
-  pass
+#defining the time steps for the solution
+t_tot=np.linspace(0, 10, 101)      #generate a solution at 101 evenly spaced samples in the interval 0 <= t <= 10
 
-# I need it to somehoe solve:
-#     m*d(eta(t))/dt-F_drg(Re(eta(t)-Vp))=z*g*(rho(X-omega)-rhod(t))/rhod(t)
-#     eta(0)=-F_drg(Re(m*g*(rho(0)-rhop)/rhop) # In the begining the velocity equals the terminal velocity of the sphere
-#     return eta(t)
+eta0=-F_drg(Re((m*g*rho[0]-rhop)/rhop))
+
+sol=odient(deta_dt, eta0, t_tot, arg=())    # [eta,t]
