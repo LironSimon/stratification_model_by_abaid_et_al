@@ -29,11 +29,13 @@ nu2 = 1.012e-6          # kinematic viscosity of the bottom layer [m2/s]
 
 #locing info acc to index file in Data (minus 2 lines from what's listed)
 ###general data:
-X = data.iloc[1]        # the bead’s position as a func of t, initialized at the top of the tank. [m]
-t = data.iloc[5]        # starts from 0 at the top of the tank [s]
-rho = rho(X)
-Vp_file = data.iloc[3]  # particle velocity as calculated in the mat files [m/s]
+X = np.array(data.iloc[1])        # the bead’s position as a func of t, initialized at the top of the tank. [m]
+t = np.array(data.iloc[5])        # starts from 0 at the top of the tank 'till end of measurements [s]
+t_e = data.iloc[5,-1]             # tot time of the iteration [s]
+Vp_file = np.array(data.iloc[3])  # particle velocity as calculated in the mat files [m/s]
 def F_drg(Re): return 0.00064 * Re ** 1.44  # drag force as a func. of Re, derived from direct measuring of Vterminal in constant density environment
+def Re(V): return V*d/nu1
+Vt1=data.iloc[15,0]
 
 ###sphere properties:
 d = data.iloc[7,0]                        # sphere's diameter [m]
