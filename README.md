@@ -1,7 +1,7 @@
 # stratification_model_by_abaid_et_al
 Equations of the model proposed by Abaid et al. 2004, of the stratification force exerted on a settling sphere
 
-This resipatory compares mesured velocities of settling/rising spheres to the velocities precdicted by the proposed model.
+This repository compares mesured velocities of settling/rising spheres to the velocities precdicted by the proposed model.
 
 - Mat_files: includes files used by Verso at Al, 2019, and a file of digitalized data from Fernnado 1999.
 - Imported_data_and_properties: loads relevant information from the mat files, and defines pre-set parameters and formulas (acc. to the model)
