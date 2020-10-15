@@ -21,4 +21,4 @@ z0=[Vt1,rho(0),Vt1]
 #defining the time steps for the solution
 t_tot=np.linspace(0, t_e, 100)      #generate a solution at 101 evenly spaced samples in the interval 0 <= t <= t_e
 
-z=odeint(model, z0, t_tot,args=(X,))
+z=odeint(model, z0, t_tot,args=(X,))  #contains the a solution for dX_dt, rhod, eta 
